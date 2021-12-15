@@ -32,6 +32,7 @@ public class AutoPartWarehouse {
                 String[] item = orderSplitted[j+1].split(",");
                 order.items[j] = new Order.Item(getPartByIndex(Integer.parseInt(item[0])), Integer.parseInt(item[1]));
             }
+            this.orders[i] = order;
         }
     }
 
