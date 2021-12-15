@@ -32,7 +32,6 @@ public class AutoPartWarehouse {
                 String[] item = orderSplitted[j+1].split(",");
                 order.items[j] = new Order.Item(getPartByIndex(Integer.parseInt(item[0])), Integer.parseInt(item[1]));
             }
-            this.orders[i] = order;
         }
     }
 
@@ -54,13 +53,15 @@ public class AutoPartWarehouse {
     }
 
     public void print() {
+        System.out.println("\n\nParts:");
         System.out.printf("%9s | %-30s |%6s\n", "Part no.", "Description", "Stock");
         System.out.println("---------------------------------------------------");
         for (Part part : parts) {
             part.print();
         }
 
-        /* --Print Orders--
+        /* --Print Orders--*/
+        System.out.println("\n\nOrders:");
         System.out.printf("%9s | %-30s |%6s | QTD.\n", "Part no.", "Description", "Stock");
         System.out.println("----------------------------------------------------------");
         for (Order order : orders) {
@@ -69,6 +70,6 @@ public class AutoPartWarehouse {
                 System.out.println("----------------------------------------------------------");
             }
         }
-        */
+
     }
 }

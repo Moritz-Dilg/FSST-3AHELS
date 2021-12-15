@@ -8,7 +8,7 @@ public class AutoParts {
                 "C:\\Users\\Moritz\\OneDrive - HTL Braunau\\FSST 3AHELS\\src\\com\\exmaple\\carparts\\Orders.txt");
         warehouse.print();
         warehouse.processOrders();
-        System.out.println("*** Warehouse after processing orders ***");
+        System.out.println("\n*** Warehouse after processing orders ***");
         warehouse.print();
     }
 }
