@@ -2,15 +2,15 @@ package com.exmaple.oop_abstract.drawing;
 
 import com.exmaple.Window;
 
+import java.awt.*;
 import java.util.Scanner;
 
-public class Rectangle {
-    Point location;
+public class Rectangle extends GraphObject {
     int width;
     int height;
 
-    Rectangle(Point location, int width, int height) {
-        this.location = location;
+    Rectangle(Point location, int width, int height, Color color) {
+        super(location, color);
         this.width = width;
         this.height = height;
     }
@@ -21,14 +21,20 @@ public class Rectangle {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         String[] pos = input.split(" ");
-        return new Rectangle(point, Integer.parseInt(pos[0]), Integer.parseInt(pos[1]));
+        return new Rectangle(point, Integer.parseInt(pos[0]), Integer.parseInt(pos[1]), readColor());
+    }
+
+    @Override
+    public void resize(double scalar) {
+        this.width *= scalar;
+        this.height *= scalar;
     }
 
     public void draw() {
-        Window.drawRectangle(this.location.x, this.location.y, this.width, this.height);
+        Window.fillRectangle(this.getLocation().x, this.getLocation().y, this.width, this.height, this.getColor());
     }
 
-    public String asString() {
-        return this.location.asString() + " - " + this.width + " | " + this.height;
+    public String toString() {
+        return "Rectangle " + this.getLocation().asString() + " - " + this.width + " | " + this.height + " - RGB = " + this.getColor().toString();
     }
 }

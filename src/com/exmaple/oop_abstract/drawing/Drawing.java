@@ -3,61 +3,36 @@ package com.exmaple.oop_abstract.drawing;
 import com.exmaple.Window;
 
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Drawing {
     public static void main(String[] args) {
         Window.open();
         Scanner scanner = new Scanner(System.in);
-        String input = "";
+        String input;
 
-        ArrayList<Polyline> polylines = new ArrayList<>();
-        ArrayList<Line> lines = new ArrayList<>();
-        ArrayList<Rectangle> rectangles = new ArrayList<>();
-        ArrayList<Circle> circles = new ArrayList<>();
+        ArrayList<GraphObject> graphObjects = new ArrayList<>();
 
 
-        while (!input.equals(".")) {
+        while (true) {
             System.out.print("Figure (L|R|C|P|.): ");
             input = scanner.nextLine();
-            switch (input) {
-                case "P":
-                    Polyline polyline = Polyline.readPolyline();
-                    polyline.draw();
-                    polylines.add(polyline);
-                    break;
-                case "L":
-                    Line line = Line.readLine();
-                    line.draw();
-                    lines.add(line);
-                    break;
-                case "R":
-                    Rectangle rectangle = Rectangle.readRectangle();
-                    rectangle.draw();
-                    rectangles.add(rectangle);
-                    break;
-                case "C":
-                    Circle circle = Circle.readCircle();
-                    circle.draw();
-                    circles.add(circle);
-                    break;
-            }
+            if (input.equals(".")) break;
+            GraphObject currentGraphObject = switch (input) {
+                case "P" -> Polyline.readPolyline();
+                case "L" -> Line.readLine();
+                case "R" -> Rectangle.readRectangle();
+                case "C" -> Circle.readCircle();
+                default -> throw new IllegalStateException("Unexpected value: " + input);
+            };
+            currentGraphObject.draw();
+            graphObjects.add(currentGraphObject);
         }
 
         System.out.println("\n");
 
-        for (Polyline polyline : polylines) {
-            System.out.println("Polyline {" + polyline.asString() + "\n}");
-        }
-        for (Line line : lines) {
-            System.out.println("Point " + line.asString());
-        }
-        for (Rectangle rectangle : rectangles) {
-            System.out.println("Point " + rectangle.asString());
-        }
-        for (Circle circle : circles) {
-            System.out.println("Point " + circle.asString());
+        for (GraphObject graphObject : graphObjects) {
+            System.out.println(graphObject.toString());
         }
     }
 }

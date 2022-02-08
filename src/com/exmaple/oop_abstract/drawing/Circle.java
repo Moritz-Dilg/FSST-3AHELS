@@ -2,14 +2,14 @@ package com.exmaple.oop_abstract.drawing;
 
 import com.exmaple.Window;
 
+import java.awt.*;
 import java.util.Scanner;
 
-public class Circle {
-    Point center;
+public class Circle extends GraphObject {
     int radius;
 
-    Circle(Point center, int radius) {
-        this.center = center;
+    Circle(Point center, int radius, Color color) {
+        super(center, color);
         this.radius = radius;
     }
 
@@ -18,14 +18,19 @@ public class Circle {
         System.out.print("Radius (r): ");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
-        return new Circle(point, Integer.parseInt(input));
+        return new Circle(point, Integer.parseInt(input), readColor());
+    }
+
+    @Override
+    public void resize(double scalar) {
+        radius *= scalar;
     }
 
     public void draw() {
-        Window.drawCircle(this.center.x, this.center.y, this.radius);
+        Window.fillCircle(this.getLocation().x, this.getLocation()  .y, this.radius, this.getColor());
     }
 
-    public String asString() {
-        return this.center.asString() + " / " + this.radius;
+    public String toString() {
+        return "Point " + this.getLocation().asString() + " / " + this.radius + " - RGB = " + this.getColor().toString();
     }
 }

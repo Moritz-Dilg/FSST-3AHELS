@@ -1,7 +1,7 @@
 package com.exmaple.oop_abstract.power;
 
-abstract public class Consumer extends Device{
-    int consumption = 0;
+public abstract class Consumer extends Device{
+    private final int consumption;
 
     Consumer(String name, int consumption) {
         super(name);
@@ -9,9 +9,7 @@ abstract public class Consumer extends Device{
     }
 
     @Override
-    public int calcConsumption() {
+    public final int calcConsumption() {
         return consumption;
     }
-
-    abstract public String toString();
 }

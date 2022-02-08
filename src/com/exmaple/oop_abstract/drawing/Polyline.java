@@ -2,13 +2,15 @@ package com.exmaple.oop_abstract.drawing;
 
 import com.exmaple.Window;
 
+import java.awt.*;
 import java.util.ArrayList;
 
-public class Polyline {
+public class Polyline extends Line {
     Point[] points;
     int pointCount;
 
-    Polyline(Point[] points) {
+    Polyline(Point[] points, Color color) {
+        super(points[0], points[points.length - 1], color);
         this.points = points;
         this.pointCount = points.length;
     }
@@ -20,20 +22,22 @@ public class Polyline {
             points.add(currentPoint);
             currentPoint = Point.readPoint();
         }
-        return new Polyline(points.toArray(new Point[0]));
+        return new Polyline(points.toArray(new Point[0]), readColor());
     }
 
     public void draw() {
         for (int i = 0; i < this.pointCount - 1; i++) {
+            this.points[i].draw();
             Window.drawLine(this.points[i].x, this.points[i].y, this.points[i + 1].x, this.points[i + 1].y);
         }
+        this.points[this.pointCount].draw();
     }
 
-    public String asString() {
+    public String toString() {
         StringBuilder string = new StringBuilder();
         for (Point point : points) {
-            string.append("\n\t").append(point.asString());
+            string.append("\n\t").append(point.toString());
         }
-        return string.toString();
+        return "Polyline {" + string + "\n}";
     }
 }

@@ -1,13 +1,13 @@
 package com.exmaple.oop_abstract.power;
 
-abstract public class Device {
-    String name;
+public abstract class Device {
+    protected final String name;
 
     Device(String name) {
         this.name = name;
     }
 
-    abstract public int calcConsumption();
+    public abstract int calcConsumption();
 
-    abstract public String toString();
+    public abstract String toString();
 }

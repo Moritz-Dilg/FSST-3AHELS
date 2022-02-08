@@ -1,6 +1,6 @@
 package com.exmaple.oop_abstract.power;
 
-public class Computer extends Consumer{
+public final class Computer extends Consumer{
 
     public Computer(String name, int consumption) {
         super(name, consumption);

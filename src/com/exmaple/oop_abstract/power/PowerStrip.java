@@ -1,7 +1,7 @@
 package com.exmaple.oop_abstract.power;
 
-public class PowerStrip extends Socket{
-    private int n = 0;
+public final class PowerStrip extends Socket{
+    private final int n;
     private int currentDevices = 0;
     private final Device[] devices;
 
@@ -36,6 +36,7 @@ public class PowerStrip extends Socket{
             if (devices[i].name.equals(device.name)) {
                 if (currentDevices - 1 - i >= 0) System.arraycopy(devices, i + 1, devices, i, currentDevices - 1);
                 currentDevices--;
+                return;
             }
         }
 
@@ -58,6 +59,6 @@ public class PowerStrip extends Socket{
         for (int i = 0; i < currentDevices; i++) {
             devicesSb.append(devices[i].toString()).append("\n");
         }
-        return sb.toString() + " are connected to " + this.name + "\n" + devicesSb.toString();
+        return sb + " are connected to " + this.name + "\n" + devicesSb;
     }
 }

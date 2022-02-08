@@ -1,10 +1,11 @@
 package com.exmaple.oop_abstract.power;
 
-public class Cable extends Socket{
-    Device device = null;
+public final class Cable extends Socket{
+    private Device device;
 
     public Cable(String name) {
         super(name);
+        device = null;
     }
 
     @Override
@@ -36,6 +37,6 @@ public class Cable extends Socket{
         if (device == null)
             return name + "is not connected";
         else
-            return device.name + " is connected to " + name + "\n" + device.toString();
+            return device.name + " is connected to " + name + "\n" + device;
     }
 }

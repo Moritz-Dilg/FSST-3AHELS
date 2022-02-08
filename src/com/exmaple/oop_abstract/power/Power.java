@@ -29,7 +29,7 @@ public class Power {
         ps2.plug(c22);
         ps2.plug(l22);
 
-        System.out.println(c1.toString());
+        System.out.println(c1);
         System.out.println("Total consumption: " + c1.calcConsumption() + " watts");
     }
 }
