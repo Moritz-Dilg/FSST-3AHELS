@@ -1,8 +1,6 @@
 package com.exmaple.interfaces;
 
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.ListIterator;
 
 public class List implements Iterable<Node> {
     private Node head = null;
