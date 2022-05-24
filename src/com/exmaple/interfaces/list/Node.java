@@ -1,4 +1,4 @@
-package com.exmaple.interfaces;
+package com.exmaple.interfaces.list;
 
 public class Node implements Comparable<Node> {
     int val;

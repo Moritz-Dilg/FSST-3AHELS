@@ -1,4 +1,4 @@
-package com.exmaple.interfaces;
+package com.exmaple.interfaces.list;
 
 import java.util.Iterator;
 

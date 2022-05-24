@@ -1,17 +1,11 @@
 package com.exmaple;
 
-import com.exmaple.arrays.*;
-import com.exmaple.carparts.AutoParts;
-import com.exmaple.classes.Classes;
-import com.exmaple.inheritance.newsfeed.NewsFeed;
-import com.exmaple.inheritance.schulApp.SchulApp;
-import com.exmaple.inheritance.ticketForEvents.TicketMain;
-import com.exmaple.interfaces.List;
-import com.exmaple.interfaces.Node;
-import com.exmaple.strings.*;
-import com.exmaple.search.*;
 
-import java.io.FileNotFoundException;
+import com.exmaple.generics.linkedlist.List;
+import com.exmaple.interfaces.list.Node;
+import com.exmaple.interfaces.dictionary.Dictionary;
+
+import java.util.Scanner;
 
 public class Main {
 
@@ -34,5 +28,38 @@ public class Main {
         list.print();
         list.remove(new Node(7));
         list.print();*/
+
+        // Dictionary
+        /*Dictionary dictionary = new Dictionary();
+        dictionary.insert("hello", "hallo");
+        dictionary.insert("world", "welt");
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter word: ");
+        while (true) {
+            String word = scanner.nextLine();
+            System.out.println(dictionary.lookupGermanWord(word));
+        }*/
+
+
+
+        // Generics
+        /*List<Integer> list = new List<>();
+        list.add(5);
+        list.add(3);
+        list.add(7);
+        list.add(4);
+        list.add(6);
+        list.add(1);
+
+        list.print();
+
+        list.remove(4);
+        list.print();
+        list.remove(1);
+        list.print();
+        list.remove(7);
+        list.print();
+        /**/
     }
 }
