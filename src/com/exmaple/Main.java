@@ -2,6 +2,7 @@ package com.exmaple;
 
 
 import com.exmaple.generics.linkedlist.List;
+import com.exmaple.interfaces.Tokenizer;
 import com.exmaple.interfaces.list.Node;
 import com.exmaple.interfaces.dictionary.Dictionary;
 
@@ -28,6 +29,11 @@ public class Main {
         list.print();
         list.remove(new Node(7));
         list.print();*/
+
+        /*Tokenizer tokenizer = new Tokenizer("Hello world! How are you?");
+        for (String s : tokenizer) {
+            System.out.println(s);
+        }*/
 
         // Dictionary
         /*Dictionary dictionary = new Dictionary();
